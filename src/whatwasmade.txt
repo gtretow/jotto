@@ -1,0 +1,34 @@
+Foi criada uma storeFactory utility que cria uma testing store com app reducers
+eventualmente ira criar middlewares
+
+
+Prop da store criada pelo streFactory add ao componente conectado dentro dos testes que usamos 
+
+Usamos shallow para criar um Virtual DOM
+
+Depois usamos .dive() para obter o child component, que é nosso input component
+
+
+Escolhas feitas no projeto <<<
+
+Usamos uma store, não uma mockStore
+Existe um npm chamado redux-mock-store que pode testar ações intermediarias 
+*como Loading, enquanto espero pelo AJAX
+
+
+MockStore não pode testar mudanças ao state
+
+uma Store de verdade é mais próxima do app
+Toda vez que vc usa mocking, tem a chance de vc estar testando algo que não é aplicado ao APP
+
+
+Redux docs recomenda usar unconected components no seu testes
+Já enzyme diz o contrário, usar unconected components e o .dive()
+
+Connected component
+*proximo do app
+*funciona com a store
+
+Non-connected component
+*Mais distante do app
+*Pode passar mock action creators como props
