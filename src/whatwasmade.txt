@@ -32,3 +32,17 @@ Connected component
 Non-connected component
 *Mais distante do app
 *Pode passar mock action creators como props
+
+
+
+// Action creator e reducers
+
+Action creator era apenas uma função retornando um objeto
+Reducer era uma função retornando um state 
+
+Enzyme .dive() usado
+*Utilizar o Child component da Connected HOC
+
+
+storeFactory
+Cria uma store para cada app

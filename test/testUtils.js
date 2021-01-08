@@ -1,12 +1,17 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 import checkPropTypes from "check-prop-types";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 
 import rootReducer from "../src/reducers";
+import { middlewares } from "../src/configureStore";
+
 //Motivo de criarmos essa store Factory
 //Could not find "store" in the context of "Connect(Input)". Either wrap the root component in a <Provider>, or pass a custom React context provider to <Provider> and the corresponding React context consumer to Connect(Input) in connect options.
 export const storeFactory = (initialState) => {
-  return createStore(rootReducer, initialState);
+  const createStoreWithMiddleware = applyMiddleware(...middlewares)(
+    createStore
+  );
+  return createStoreWithMiddleware(rootReducer, initialState);
 };
 
 export const findByTestAttr = (wrapper, val) => {
