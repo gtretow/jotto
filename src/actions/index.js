@@ -1,4 +1,5 @@
 import { getLetterMatchCount } from "../helpers";
+import axios from "axios";
 
 //Pular unit testes
 // menos testes para cuidar e menos refatoração de test quando for refatorar o código
@@ -10,6 +11,7 @@ import { getLetterMatchCount } from "../helpers";
 export const actionTypes = {
   CORRECT_GUESS: "CORRECT_GUESS",
   GUESS_WORD: "GUESS_WORD",
+  SET_SECRET_WORD:"SET_SECRET_WORD"
 };
 
 //RETORNA UM OBJETO
@@ -32,3 +34,6 @@ export const guessWord = (guessedWord) => {
     }
   };
 };
+
+
+export const getSecretWord = () => {return (dispatch) => {axios.get('http://localhost:3030')}}
