@@ -6,12 +6,11 @@ import { actionTypes } from "../actions";
 // returns new success state
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state = false, action) => {
-  switch (action.type) {
-    case actionTypes.CORRECT_GUESS:
+export default (state=false, action) => {
+  switch(action.type) {
+    case (actionTypes.CORRECT_GUESS):
       return true;
-
     default:
       return state;
   }
-};
+}

@@ -6,13 +6,14 @@ import rootReducer from "../src/reducers";
 import { middlewares } from "../src/configureStore";
 
 //Motivo de criarmos essa store Factory
-//Could not find "store" in the context of "Connect(Input)". Either wrap the root component in a <Provider>, or pass a custom React context provider to <Provider> and the corresponding React context consumer to Connect(Input) in connect options.
+
 export const storeFactory = (initialState) => {
   const createStoreWithMiddleware = applyMiddleware(...middlewares)(
     createStore
   );
   return createStoreWithMiddleware(rootReducer, initialState);
 };
+
 
 export const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);

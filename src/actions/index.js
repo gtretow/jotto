@@ -1,3 +1,5 @@
+import { getLetterMatchCount } from "../helpers";
+
 //Pular unit testes
 // menos testes para cuidar e menos refatoração de test quando for refatorar o código
 
@@ -16,5 +18,17 @@ export function correctGuess() {
 }
 
 export const guessWord = (guessedWord) => {
-  return function (dispatch, getState) {};
+  return function (dispatch, getState) {
+    const secretWord = getState().secretWord;
+    const letterMatchCount = getLetterMatchCount(guessedWord, secretWord);
+
+    dispatch({
+      type: actionTypes.GUESS_WORD,
+      payload: { guessedWord, letterMatchCount },
+    });
+
+    if (guessedWord === secretWord) {
+      dispatch({ type: actionTypes.CORRECT_GUESS });
+    }
+  };
 };
