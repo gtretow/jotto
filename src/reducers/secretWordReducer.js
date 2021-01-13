@@ -1,5 +1,13 @@
-/* eslint-disable import/no-anonymous-default-export */
-export default (state = null, action) => {
+import { actionTypes } from "../actions";
 
-    return state;
-}
+/* eslint-disable import/no-anonymous-default-export */
+
+export default (state = null, action) => {
+  switch (action.type) {
+    case actionTypes.SET_SECRET_WORD:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
