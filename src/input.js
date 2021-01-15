@@ -20,6 +20,7 @@ class UnconectedInput extends Component {
     const guessedWord = this.state.currentGuess;
     if (guessedWord && guessedWord.length > 0) {
       this.props.guessWord(guessedWord);
+      this.setState({ currentGuess: "" });
     }
   }
 
@@ -39,7 +40,7 @@ class UnconectedInput extends Component {
           className="btn btn-primary mb-2"
           onClick={() => this.props.guessWord("")}
           type="submit"
-        ></button>
+        >Guess</button>
       </form>
     );
 
