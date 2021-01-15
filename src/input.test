@@ -84,35 +84,7 @@ describe("redux props", () => {
 });
 
 describe("guessWord action creator call", () => {
-  let guessWordMock;
-  let wrapper;
-  const guessedWord = "train";
-  beforeEach(() => {
-    guessWordMock = jest.fn();
-    const props = {
-      guessWord: guessWordMock,
-    };
-
-    wrapper = shallow(<UnconectedInput {...props} />);
-
-    const submitButton = findByTestAttr(wrapper, "submit-button");
-
-    //add value to input box
-    wrapper.setState({ currentGuess: guessedWord });
-    submitButton.simulate("click", { preventDefault() {} });
-  });
-
-  it("calls guessWord when button is clicked", () => {
-    const guessWordcallCount = guessWordMock.mock.calls.length;
-    expect(guessWordcallCount).toBe(1);
-  });
-
-  test("calls guessWord with input value as argument", () => {
-    const guessWordArg = guessWordMock.mock.calls[0][0];
-    expect(guessWordArg).toBe(guessedWord);
-  });
-
-  /* test("actionCreator runs when expected", () => {
+  test("actionCreator runs when expected", () => {
     const guessWordMock = jest.fn();
 
     //set up app component with guessWordMock as the guessWord prop
@@ -126,5 +98,7 @@ describe("guessWord action creator call", () => {
     const guessWordCallCount = guessWordMock.mock.calls.length;
 
     expect(guessWordCallCount).toBe(1);
-  }); */
+  });
+
+  test("actionCreator runs with correct argument", () => {});
 });
